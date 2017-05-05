@@ -1,0 +1,48 @@
+[NbConvertApp] Converting notebook Models.ipynb to notebook
+[NbConvertApp] Executing notebook with kernel: python3
+[NbConvertApp] ERROR | Timeout waiting for execute reply (30s).
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/execute.py", line 259, in run_cell
+    msg = self.kc.shell_channel.get_msg(timeout=timeout)
+  File "/usr/local/lib/python3.5/dist-packages/jupyter_client/blocking/channels.py", line 57, in get_msg
+    raise Empty
+queue.Empty
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/jupyter-nbconvert", line 11, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.5/dist-packages/jupyter_core/application.py", line 267, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "/usr/local/lib/python3.5/dist-packages/traitlets/config/application.py", line 658, in launch_instance
+    app.start()
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/nbconvertapp.py", line 305, in start
+    self.convert_notebooks()
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/nbconvertapp.py", line 473, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/nbconvertapp.py", line 444, in convert_single_notebook
+    output, resources = self.export_single_notebook(notebook_filename, resources, input_buffer=input_buffer)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/nbconvertapp.py", line 373, in export_single_notebook
+    output, resources = self.exporter.from_filename(notebook_filename, resources=resources)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/exporters/exporter.py", line 171, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/exporters/exporter.py", line 189, in from_file
+    return self.from_notebook_node(nbformat.read(file_stream, as_version=4), resources=resources, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/exporters/notebook.py", line 31, in from_notebook_node
+    nb_copy, resources = super(NotebookExporter, self).from_notebook_node(nb, resources, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/exporters/exporter.py", line 131, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/exporters/exporter.py", line 308, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/base.py", line 47, in __call__
+    return self.preprocess(nb,resources)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/execute.py", line 211, in preprocess
+    nb, resources = super(ExecutePreprocessor, self).preprocess(nb, resources)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/base.py", line 70, in preprocess
+    nb.cells[index], resources = self.preprocess_cell(cell, resources, index)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/execute.py", line 227, in preprocess_cell
+    outputs = self.run_cell(cell)
+  File "/usr/local/lib/python3.5/dist-packages/nbconvert/preprocessors/execute.py", line 272, in run_cell
+    raise exception("Cell execution timed out")
+TimeoutError: Cell execution timed out
